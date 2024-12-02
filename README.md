@@ -32,3 +32,10 @@ El objetivo principal de este proyecto es desarrollar un modelo de aprendizaje a
 El **análisis de radiografías de tórax para neumonía** es un procedimiento diagnóstico clave para detectar esta enfermedad pulmonar. Consiste en obtener imágenes de los pulmones mediante rayos X, las cuales permiten identificar signos característicos de neumonía, como opacidades blancas o áreas de consolidación que indican inflamación y acumulación de líquido en los alvéolos pulmonares.
 
 En una radiografía, los pulmones de un paciente sano aparecen oscuros debido a su contenido de aire, mientras que en la neumonía se observan anomalías como patrones opacos focales o difusos, pérdida de nitidez en las estructuras anatómicas, y en casos severos, derrame pleural. Este análisis es esencial para confirmar el diagnóstico clínico, evaluar la severidad de la enfermedad y monitorear la respuesta al tratamiento.
+
+- **Imágenes**: Radiografías de tórax.
+- **Etiquetas**: Cada imagen está etiquetada para indicar la presencia o ausencia de neumonía con las etiquetas 'NORMAL' y 'PNEUMONIA'.
+- **Formato**: Las imágenes están en formato JPEG, facilitando su manejo y procesamiento.
+- **Tamaño**: El conjunto de datos incluye un número significativo de imágenes sin embargo se tiene una sobrerrpresentación de la clase 'PNEUMONIA'.
+
+Este proyecto ofrece la posibilidad de impulsar el desarrollo de tecnologías avanzadas para enfrentar la neumonía, optimizando la eficiencia y la exactitud en su diagnóstico, además de fortalecer el acceso a herramientas médicas innovadoras.
