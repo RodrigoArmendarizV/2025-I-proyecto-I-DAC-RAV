@@ -1,5 +1,5 @@
-#  ![Logo Facultad de Ciencias](Clasificación de imágenes de rayos X enfocado en la detección de neumonía/images/logoFC85.png) Proyecto - Detector de Neumonía.
-Este repositorio contiene los diferentes proyectos desarrollados durante el curso "Clasificación de Imágenes con Redes Neuronales", impartido en el semestre 2025-I en la Licenciatura en Matemáticas Aplicadas.
+#  ![Logo Facultad de Ciencias](images/logoFC85.png) Proyecto - Detector de Neumonía.
+
 [![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![TensorFlow Version](https://img.shields.io/badge/TensorFlow-2.18-orange.svg)](https://www.tensorflow.org/)
 
