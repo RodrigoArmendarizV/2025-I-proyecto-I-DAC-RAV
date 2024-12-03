@@ -46,7 +46,7 @@ cd 2025-I-proyecto-I-DAC-RAV
 
 El modelo necesario para ejecutar la API es bastante pesado y no está incluido directamente en el repositorio pero se puede descargar en el siguiente enlace:
  
-[Descargar modelo cnn_neumonia.keras](https://drive.google.com/file/d/1lIucaM2YqiQma1Z3UGR28jJuoSuR9XmT/view?usp=drive_link)
+[Descargar modelo cnn_neumonia.keras](https://drive.google.com/file/d/1lIucaM2YqiQma1Z3UGR28jJuoSuR9XmT/view?usp=sharing)
 
 Guarda el archivo en la ubicación  (/app/cnn_neumonía.keras si usas Docker).
  
