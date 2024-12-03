@@ -63,7 +63,7 @@ Inicia el contenedor con Docker:
 ```bash
 docker run -d -p 8080:8080 neumonia-api
 ```
-Accede a la interfaz de usuario en `http://127.0.0.1:8080/`
+Accede a la interfaz de usuario en `http://127.0.0.1:8080/predict`
 
 ### Detener y Eliminar Contenedores
 Para detener un contenedor:
@@ -86,7 +86,7 @@ docker rm id_contenedor
 
 **Ejemplo:**
 ```bash
-curl -X POST -F "file=@radiografia.jpeg" http://127.0.0.1:8080/
+curl -X POST -F "file=@/Users/diegoarias/Downloads/prueba.jpg" http://127.0.0.1:8080/predict --output grad_cam.png
 ```
 
 **Response:**
