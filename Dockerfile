@@ -5,7 +5,7 @@ FROM python:3.12-slim
 WORKDIR /app
 
 # Copia el archivo requirements.txt al contenedor
-COPY requeriments.txt /app/requirements.txt
+COPY requirements.txt /app/requirements.txt
 
 # Instala las dependencias
 RUN pip install -r /app/requirements.txt
