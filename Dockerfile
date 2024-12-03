@@ -8,6 +8,7 @@ WORKDIR /app
 COPY app.py /app/
 COPY templates/ /app/templates/
 COPY cnn_neumonía.keras /app/
+COPY requirements.txt /app/
 
 # Instala las dependencias
 RUN pip install -r requirements.txt
