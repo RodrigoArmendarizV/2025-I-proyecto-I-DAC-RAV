@@ -4,14 +4,11 @@ FROM python:3.12-slim
 # Configuración del directorio de trabajo
 WORKDIR /app
 
-# Copia el archivo requirements.txt al contenedor
-COPY requirements.txt /app/requirements.txt
-
-# Instala las dependencias
-RUN pip install -r /app/requirements.txt
-
-# Copia todo lo demás
+# Copia la carpeta app completa al contenedor
 COPY app /app
+
+# Instala las dependencias desde requirements.txt
+RUN pip install -r /app/requirements.txt
 
 # Expone el puerto
 EXPOSE 8080
