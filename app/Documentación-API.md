@@ -6,7 +6,6 @@
 2. [Requisitos Previos](#requisitos-previos)
 3. [Instalación](#instalación)
    - [Clonación del Repositorio](#clonación-del-repositorio)
-   - [Configuración del Entorno](#configuración-del-entorno)
 4. [Uso de Docker](#uso-de-docker)
    - [Construcción de la Imagen](#construcción-de-la-imagen)
    - [Ejecución del Contenedor](#ejecución-del-contenedor)
@@ -18,7 +17,9 @@
 ---
 
 ## Introducción
-Esta API permite analizar imágenes de radiografías de tórax para detectar neumonía utilizando un modelo de aprendizaje profundo.
+Esta API permite analizar radiografías de tórax para detectar neumonía utilizando redes neuronales convolucionales. Genera un Grad-CAM para visualizar las áreas más relevantes en las imágenes analizadas.
+
+Es ideal para integrarse en sistemas médicos que requieran un diagnóstico automatizado complementario.
 
 ### Fecha de Actualización
 Última actualización: 02-12-2024
@@ -45,22 +46,22 @@ El modelo necesario para ejecutar la API es bastante pesado y no está incluido 
  
 [Descargar modelo cnn_neumonía.keras](https://drive.google.com/file/d/1lIucaM2YqiQma1Z3UGR28jJuoSuR9XmT/view?usp=drive_link)
 
-Por favor, guarda el archivo en la ubicación indicada en la configuración del modelo (/app/malaria_detection_model.h5 si usas Docker).
+Guarda el archivo en la ubicación  (/app/cnn_neumonía.keras si usas Docker).
  
 ## Uso de Docker
 
 ### Construcción de la Imagen
 Construye la imagen de Docker:
 ```bash
-docker build -t neumonía-api .
+docker build -t neumonia-api .
 ```
 
 ### Ejecución del Contenedor
 Inicia el contenedor con Docker:
 ```bash
-docker run -d -p 80:80 neumonía-api
+docker run -d -p 8080:8080 neumonia-api
 ```
-Accede a la API en `http://localhost:80/docs` para la documentación interactiva.
+Accede a la API en `http://127.0.0.1:8080/` para la documentación interactiva.
 
 ### Detener y Eliminar Contenedores
 Para detener un contenedor:
@@ -71,7 +72,6 @@ Para eliminarlo:
 ```bash
 docker rm id_contenedor
 ```
-
 ---
 
 ## Endpoints de la API
@@ -80,28 +80,28 @@ docker rm id_contenedor
 **Descripción:** Clasifica una imagen para la detección de neumonía a partir de radiografías de tórax.
 
 **Request Body:**
-- `img_base64` (string): Imagen codificada en Base64.
+- `file` (archivo): Archivo de imagen de la radiografía (formato JPEG o JPG).
 
 **Ejemplo:**
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"img_base64": "base64_string"}' http://localhost:80/clasification_image
+curl -X POST -F "file=@radiografia.jpeg" http://127.0.0.1:8080/
 ```
 
 **Response:**
+Imagen Grad-CAM y encabezados HTTP
+-  
 ```json
-{
-  "confidence": 0.98,
-  "predicted_class": "PNEUMONIA"
-}
+const prediction = response.headers.get("X-Prediction");
+const confidence = response.headers.get("X-Confidence");
 ```
 
 ---
 
 ## Manejo de Errores
-La API devuelve respuestas HTTP con códigos de error estándar:
-- **400**: Error en la solicitud (p. ej., imagen inválida o no soportada).
-- **404**: Endpoint no encontrado.
-- **500**: Error interno del servidor.
+La API maneja errores utilizando códigos de estado HTTP estándar, asegurando una comunicación clara con el cliente:
+- **400 - Solicitud Inválida:** Indica que la solicitud enviada por el cliente contiene errores, como subir una imagen no válida o un formato no soportado.
+- **404 - Recurso No Encontrado:** Señala que el endpoint solicitado no existe o está mal especificado.
+- **500 - Error Interno del Servidor:** Ocurre cuando hay un fallo inesperado durante el procesamiento en el servidor.
 
 ## Observaciones
 
