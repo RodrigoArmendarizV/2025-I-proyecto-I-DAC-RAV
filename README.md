@@ -39,3 +39,7 @@ En una radiografía, los pulmones de un paciente sano aparecen oscuros debido a 
 - **Tamaño**: El conjunto de datos incluye un número significativo de imágenes sin embargo se tiene una sobrerrpresentación de la clase 'PNEUMONIA'.
 
 Este proyecto ofrece la posibilidad de impulsar el desarrollo de tecnologías avanzadas para enfrentar la neumonía, optimizando la eficiencia y la exactitud en su diagnóstico, además de fortalecer el acceso a herramientas médicas innovadoras.
+
+## Enlaces relevantes
+
+[Base de datos para la detección de neumoniía en Kaggle(https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia)]
