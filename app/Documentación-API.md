@@ -12,7 +12,7 @@
    - [Ejecución del Contenedor](#ejecución-del-contenedor)
    - [Detener y Eliminar Contenedores](#detener-y-eliminar-contenedores)
 5. [Endpoints de la API](#endpoints-de-la-api)
-   - [POST /clasification_image](#post-clasification_image)
+   - [POST /predict](#post-predict)
 6. [Manejo de errores](#manejo-de-errores)
 
 ---
@@ -45,7 +45,7 @@ cd 2025-I-proyecto-I-DAC-RAV
 
 El modelo necesario para ejecutar la API es bastante pesado y no está incluido directamente en el repositorio pero se puede descargar en el siguiente enlace:
  
-[Descargar modelo cnn_neumonía.keras](https://drive.google.com/file/d/1lIucaM2YqiQma1Z3UGR28jJuoSuR9XmT/view?usp=drive_link)
+[Descargar modelo cnn_neumonia.keras](https://drive.google.com/file/d/1lIucaM2YqiQma1Z3UGR28jJuoSuR9XmT/view?usp=drive_link)
 
 Guarda el archivo en la ubicación  (/app/cnn_neumonía.keras si usas Docker).
  
@@ -62,7 +62,7 @@ Inicia el contenedor con Docker:
 ```bash
 docker run -d -p 8080:8080 neumonia-api
 ```
-Accede a la API en `http://127.0.0.1:8080/` para la documentación interactiva.
+Accede a la interfaz de usuario en `http://127.0.0.1:8080/`
 
 ### Detener y Eliminar Contenedores
 Para detener un contenedor:
@@ -77,7 +77,7 @@ docker rm id_contenedor
 
 ## Endpoints de la API
 
-### POST /clasification_image
+### POST /predict
 **Descripción:** Clasifica una imagen para la detección de neumonía a partir de radiografías de tórax.
 
 **Request Body:**
@@ -91,9 +91,12 @@ curl -X POST -F "file=@radiografia.jpeg" http://127.0.0.1:8080/
 **Response:**
 Imagen Grad-CAM y encabezados HTTP
 -  
-```html
-const prediction = response.headers.get("X-Prediction");
-const confidence = response.headers.get("X-Confidence");
+```json
+{
+  "prediction": "PNEUMONIA",
+  "confidence": "El modelo está 96.87% seguro de que ES neumonía."
+}
+
 ```
 
 ---
