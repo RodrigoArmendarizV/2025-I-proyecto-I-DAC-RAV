@@ -11,7 +11,7 @@ import os
 from scipy.ndimage import gaussian_filter
 from io import BytesIO
 import cv2
-import base64
+import sys
 
 app = Flask(__name__)
 
@@ -131,18 +131,24 @@ def predict():
             predicted_class = "NORMAL"
             confidence = (1 - prediction_value) * 100
 
-        # Imprimir las predicciones en el terminal del servidor
-        print(f"Predicción: {predicted_class}")
-        print(f"Confianza: {confidence:.2f}%")
+        # Mostrar diagnóstico en la terminal
+        print(f"Predicción: {predicted_class}, Confianza: {confidence:.2f}%", file=sys.stdout)
+        sys.stdout.flush()
 
         # Generar Grad-CAM
         grad_cam_image = generate_grad_cam_bounding_boxes(processed_image, predictions)
 
-        # Devolver la respuesta como imagen Grad-CAM
-        response = send_file(grad_cam_image, mimetype='image/png', as_attachment=False, download_name='grad_cam.png')
-        response.headers['X-Prediction'] = predicted_class
-        response.headers['X-Confidence'] = f"{confidence:.2f}%"
-        return response
+        # Guardar imagen temporalmente
+        image_path = "/tmp/grad_cam.png"
+        with open(image_path, "wb") as f:
+            f.write(grad_cam_image.read())
+
+        # Respuesta JSON con diagnóstico y enlace a la imagen
+        return jsonify({
+            "prediction": predicted_class,
+            "confidence": f"{confidence:.2f}%",
+            "image_path": image_path
+        })
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
