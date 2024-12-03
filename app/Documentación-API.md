@@ -90,7 +90,7 @@ curl -X POST -F "file=@radiografia.jpeg" http://127.0.0.1:8080/
 **Response:**
 Imagen Grad-CAM y encabezados HTTP
 -  
-```json
+```html
 const prediction = response.headers.get("X-Prediction");
 const confidence = response.headers.get("X-Confidence");
 ```
