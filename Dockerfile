@@ -4,17 +4,14 @@ FROM python:3.12-slim
 # Configuración del directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos necesarios
-COPY app.py /app/
-COPY templates/ /app/templates/
-COPY cnn_neumonía.keras /app/
-COPY requirements.txt /app/
+# Copia la carpeta app completa al contenedor
+COPY app /app
 
-# Instala las dependencias
-RUN pip install -r requirements.txt
+# Instala las dependencias desde requirements.txt
+RUN pip install -r /app/requirements.txt
 
 # Expone el puerto
 EXPOSE 8080
 
 # Comando para iniciar la aplicación
-CMD ["python", "app.py"]
+CMD ["python", "/app/app.py"]
