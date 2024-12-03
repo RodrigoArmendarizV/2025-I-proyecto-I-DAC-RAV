@@ -5,7 +5,7 @@
 
 [Video Demo](https://drive.google.com/file/d/1a__4Ig-tmgPqYBSufVAHB0RoLGicGaIw/view?usp=drive_link)
 
-[Frontend en Github pages](https://jrbeduardo.github.io/proyecto-malaria/)
+[Frontend en Github pages](https://rodrigoarmendarizv.github.io/2025-I-proyecto-I-DAC-RAV/)
 
 ## Integrantes:  
 
