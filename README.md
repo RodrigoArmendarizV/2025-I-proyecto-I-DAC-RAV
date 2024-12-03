@@ -33,6 +33,8 @@ El **análisis de radiografías de tórax para neumonía** es un procedimiento d
 
 En una radiografía, los pulmones de un paciente sano aparecen oscuros debido a su contenido de aire, mientras que en la neumonía se observan anomalías como patrones opacos focales o difusos, pérdida de nitidez en las estructuras anatómicas, y en casos severos, derrame pleural. Este análisis es esencial para confirmar el diagnóstico clínico, evaluar la severidad de la enfermedad y monitorear la respuesta al tratamiento.
 
+![Pneumonia dataset](images/intro.png)
+
 - **Imágenes**: Radiografías de tórax.
 - **Etiquetas**: Cada imagen está etiquetada para indicar la presencia o ausencia de neumonía con las etiquetas 'NORMAL' y 'PNEUMONIA'.
 - **Formato**: Las imágenes están en formato JPEG, facilitando su manejo y procesamiento.
