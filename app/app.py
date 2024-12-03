@@ -15,7 +15,7 @@ import cv2
 app = Flask(__name__)
 
 # Cargar el modelo
-model = load_model('cnn_neumonía.keras')
+model = load_model('/app/cnn_neumonia.keras')
 
 # Configuración del modelo
 IMAGE_SIZE = (256, 256)
