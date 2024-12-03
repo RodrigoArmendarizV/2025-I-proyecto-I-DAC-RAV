@@ -43,7 +43,7 @@ cd proyecto-malaria
 
 El modelo necesario para ejecutar la API es bastante pesado y no está incluido directamente en el repositorio pero se puede descargar en el siguiente enlace:
  
-[Descargar modelo malaria_detection_model.h5](https://drive.google.com/file/d/1dDQc0MbJ7ISSx5R4_XZDaKuU0P8YSR7M/view?usp=sharing)
+[Descargar modelo cnn_neumonía.keras](https://drive.google.com/file/d/1lIucaM2YqiQma1Z3UGR28jJuoSuR9XmT/view?usp=drive_link)
 
 Por favor, guarda el archivo en la ubicación indicada en la configuración del modelo (/app/malaria_detection_model.h5 si usas Docker).
  
@@ -77,7 +77,7 @@ docker rm id_contenedor
 ## Endpoints de la API
 
 ### POST /clasification_image
-**Descripción:** Clasifica una imagen para detectar malaria.
+**Descripción:** Clasifica una imagen para la detección de neumonía a partir de radiografías de tórax.
 
 **Request Body:**
 - `img_base64` (string): Imagen codificada en Base64.
@@ -91,7 +91,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"img_base64": "base64_stri
 ```json
 {
   "confidence": 0.98,
-  "predicted_class": "Sí malaria"
+  "predicted_class": "PNEUMONIA"
 }
 ```
 
