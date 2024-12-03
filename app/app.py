@@ -132,6 +132,9 @@ def predict():
             confidence = (1 - prediction_value) * 100
             confidence_message = f"El modelo está {confidence:.2f}% seguro de que NO ES neumonía."
 
+        # Mostrar diagnóstico en la terminal
+        print(f"Predicción: {predicted_class}, Confianza: {confidence:.2f}%")
+
         # Generar el Grad-CAM con bounding boxes
         grad_cam_image = generate_grad_cam_bounding_boxes(processed_image, predictions)
 
