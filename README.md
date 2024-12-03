@@ -3,7 +3,7 @@
 [![Python Version](https://img.shields.io/badge/python-3.12-blue.svg)](https://www.python.org/downloads/release/python-3100/)
 [![TensorFlow Version](https://img.shields.io/badge/TensorFlow-2.18-orange.svg)](https://www.tensorflow.org/)
 
-[Video Demo](https://drive.google.com/file/d/1a__4Ig-tmgPqYBSufVAHB0RoLGicGaIw/view?usp=drive_link)
+[Video Demo](https://drive.google.com/file/d/1a__4Ig-tmgPqYBSufVAHB0RoLGicGaIw/view?usp=sharing)
 
 [Frontend en Github pages](https://rodrigoarmendarizv.github.io/2025-I-proyecto-I-DAC-RAV/)
 
