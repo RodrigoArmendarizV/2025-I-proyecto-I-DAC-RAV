@@ -14,7 +14,7 @@
 
 ## Entegrables:
 
-1. [Memoria Técnica](dev_model/MEMORIA-TECNICA.md)
+1. [Memoria Técnica](dev_model/Memoria-técnica.md)
 1. [Documentación API](app/Documentación-API.md)
 
 ## Contexto
