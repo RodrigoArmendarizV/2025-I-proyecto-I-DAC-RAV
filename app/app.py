@@ -131,22 +131,18 @@ def predict():
             predicted_class = "NORMAL"
             confidence = (1 - prediction_value) * 100
 
-        # Mostrar diagnóstico en la terminal
-        print(f"Predicción: {predicted_class}, Confianza: {confidence:.2f}%")
+        # Imprimir las predicciones en el terminal del servidor
+        print(f"Predicción: {predicted_class}")
+        print(f"Confianza: {confidence:.2f}%")
 
         # Generar Grad-CAM
         grad_cam_image = generate_grad_cam_bounding_boxes(processed_image, predictions)
 
-        # Convertir la imagen a base64
-        grad_cam_image.seek(0)
-        image_base64 = base64.b64encode(grad_cam_image.read()).decode('utf-8')
-
-        # Respuesta JSON con predicción, confianza e imagen
-        return jsonify({
-            "prediction": predicted_class,
-            "confidence": f"{confidence:.2f}%",
-            "grad_cam_image": image_base64
-        })
+        # Devolver la respuesta como imagen Grad-CAM
+        response = send_file(grad_cam_image, mimetype='image/png', as_attachment=False, download_name='grad_cam.png')
+        response.headers['X-Prediction'] = predicted_class
+        response.headers['X-Confidence'] = f"{confidence:.2f}%"
+        return response
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
