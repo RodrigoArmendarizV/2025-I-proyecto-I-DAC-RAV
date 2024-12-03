@@ -106,9 +106,10 @@ def index():
 
 @app.route("/predict", methods=["POST"])
 def predict():
+    """Procesa una solicitud de predicción."""
     if "file" not in request.files:
         return jsonify({"error": "No se subió ningún archivo"}), 400
-    
+
     file = request.files["file"]
     if file.filename == "":
         return jsonify({"error": "Nombre de archivo vacío"}), 400
@@ -120,31 +121,32 @@ def predict():
 
         # Realizar predicción
         predictions = model.predict(processed_image)
-        prediction_value = predictions[0][0]  # Obtener el valor de la predicción
+        prediction_value = predictions[0][0]
 
-        # Determinar la clase y calcular confianza
         if prediction_value >= 0.5:
             predicted_class = "PNEUMONIA"
             confidence = prediction_value * 100
-            confidence_message = f"El modelo está {confidence:.2f}% seguro de que ES neumonía."
         else:
             predicted_class = "NORMAL"
             confidence = (1 - prediction_value) * 100
-            confidence_message = f"El modelo está {confidence:.2f}% seguro de que NO ES neumonía."
 
         # Mostrar diagnóstico en la terminal
         print(f"Predicción: {predicted_class}, Confianza: {confidence:.2f}%")
 
-        # Generar el Grad-CAM con bounding boxes
+        # Generar Grad-CAM
         grad_cam_image = generate_grad_cam_bounding_boxes(processed_image, predictions)
 
-        # Crear la respuesta con Grad-CAM
-        response = send_file(grad_cam_image, mimetype='image/png', as_attachment=False, download_name='grad_cam.png')
+        # Guardar imagen temporalmente
+        image_path = "/tmp/grad_cam.png"
+        with open(image_path, "wb") as f:
+            f.write(grad_cam_image.read())
 
-        # Agregar encabezados para predicción y confianza
-        response.headers['X-Prediction'] = predicted_class
-        response.headers['X-Confidence'] = confidence_message
-        return response
+        # Respuesta JSON con diagnóstico y enlace a la imagen
+        return jsonify({
+            "prediction": predicted_class,
+            "confidence": f"{confidence:.2f}%",
+            "image_path": image_path
+        })
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
