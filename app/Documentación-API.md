@@ -6,7 +6,7 @@
 2. [Requisitos Previos](#requisitos-previos)
 3. [Instalación](#instalación)
    - [Clonación del Repositorio](#clonación-del-repositorio)
-   - [Carga del modelo](#carga-del-modelo)
+   - [Descargar el modelo](#descargar-el-modelo)
 4. [Uso de Docker](#uso-de-docker)
    - [Construcción de la Imagen](#construcción-de-la-imagen)
    - [Ejecución del Contenedor](#ejecución-del-contenedor)
@@ -42,7 +42,7 @@ Clona el repositorio del proyecto:
 git clone https://github.com/RodrigoArmendarizV/2025-I-proyecto-I-DAC-RAV.git
 cd 2025-I-proyecto-I-DAC-RAV
 ```
-## Carga del modelo
+## Descargar el modelo
 
 El modelo necesario para ejecutar la API es bastante pesado y no está incluido directamente en el repositorio pero se puede descargar en el siguiente enlace:
  
