@@ -14,7 +14,7 @@
 5. [Endpoints de la API](#endpoints-de-la-api)
    - [POST /predict](#post-predict)
 6. [Manejo de errores](#manejo-de-errores)
-7. Observaciones(#observaciones)
+7. [Observaciones](#observaciones)
 
 ---
 
