@@ -42,4 +42,4 @@ Este proyecto ofrece la posibilidad de impulsar el desarrollo de tecnologías av
 
 ## Enlaces relevantes
 
-[Base de datos para la detección de neumoniía en Kaggle(https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia)]
+- [Base de datos para la detección de neumonía en Kaggle](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia)
