@@ -26,7 +26,7 @@
   - [Introducción](#introducción)
 - [Fuentes de información y procedimientos aplicados](#fuentes-de-información-y-procedimientos-aplicados)
   - [Construcción del modelo](#construcción-del-modelo)
-  - [Resultados modelo](#resultados-modelo)
+  - [Resultados del modelo](#resultados-del-modelo)
   - [Pruebas sobre el modelo](#pruebas-sobre-el-modelo)
   - [Conclusiones](#conclusiones)
 - [Conclusiones generales](#conclusiones-generales)
@@ -57,9 +57,13 @@ Descargamos el conjunto de datos del enlace de Kaggle incluido, el cual es de im
 
 ### División de los datos
 La siguiente gráfica muestra la distribución de las imágenes en el conjunto de datos de entrenamiento:
+
 ![Entrenamiento](../images/entrenamiento.png)
+
 Y la siguiente es sobre el conjunto de datos de prueba:
+
 ![Prueba](../images/pruebas.png)
+
 Notamos que el conjunto de entrenamiento es mucho mayor que el de pruebas, y ambos tienen una mayor presencia de imágenes de neumonía.
 En total hay 5216 imágenes en el conjunto de entrenamiento, 1341 sanas y 3875 con neumonía, y en el de prueba hay 624 de las cuales 234 son imágenes de personas sanas y 390 de personas con neumonía.
 
@@ -103,7 +107,7 @@ En total hay 5216 imágenes en el conjunto de entrenamiento, 1341 sanas y 3875 c
 3. **Clasificación**: Las capas densas realizan la clasificación, con *Dropout* para prevenir el sobreajuste.
 4. **Salida**: La capa final usa una función de activación sigmoide para la predicción binaria de neumonía.
 
-Se usa esta red pues, siguiendo el objetivo del proyecto, extrae información relevante a través de las capas convolucionales, reduce sobreajuste y dimensionalidad para una mayor precisión y al final, según la probabilidad dada por la función de activación, nos da una probabilidad a partir de la cual clasifica a la imagen, que es justamente a lo que queremos llegar.
+Se usa esta red pues, siguiendo el objetivo del proyecto, extrae información relevante a través de las capas convolucionales, reduce sobreajuste y dimensionalidad para una mayor precisión y al final, según la probabilidad dada por la función de activación, clasifica a la imagen, que es justamente a lo que queremos llegar.
 
 ## Resultados del modelo
 
