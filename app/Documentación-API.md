@@ -14,6 +14,7 @@
 5. [Endpoints de la API](#endpoints-de-la-api)
    - [POST /predict](#post-predict)
 6. [Manejo de errores](#manejo-de-errores)
+7. Observaciones(#observaciones)
 
 ---
 
@@ -106,3 +107,7 @@ La API maneja errores utilizando códigos de estado HTTP estándar, asegurando u
 - **400 - Solicitud Inválida:** Indica que la solicitud enviada por el cliente contiene errores, como subir una imagen no válida o un formato no soportado.
 - **404 - Recurso No Encontrado:** Señala que el endpoint solicitado no existe o está mal especificado.
 - **500 - Error Interno del Servidor:** Ocurre cuando hay un fallo inesperado durante el procesamiento en el servidor.
+
+## Observaciones
+
+En caso de descargar `app.py`, para que la API funcione correctamente se debe de descargar también `index.html` y ponerlo en una carpeta llamada `templates`.
