@@ -6,12 +6,14 @@
 2. [Requisitos Previos](#requisitos-previos)
 3. [Instalación](#instalación)
    - [Clonación del Repositorio](#clonación-del-repositorio)
+   - [Carga del modelo](#carga-del-modelo)
 4. [Uso de Docker](#uso-de-docker)
    - [Construcción de la Imagen](#construcción-de-la-imagen)
    - [Ejecución del Contenedor](#ejecución-del-contenedor)
    - [Detener y Eliminar Contenedores](#detener-y-eliminar-contenedores)
 5. [Endpoints de la API](#endpoints-de-la-api)
    - [POST /clasification_image](#post-clasification_image)
+6. [Manejo de errores](#manejo-de-errores)
 
 ---
 
