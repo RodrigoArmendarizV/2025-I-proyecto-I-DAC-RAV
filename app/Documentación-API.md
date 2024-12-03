@@ -68,11 +68,11 @@ Accede a la interfaz de usuario en `http://127.0.0.1:8080/predict`
 ### Detener y Eliminar Contenedores
 Para detener un contenedor:
 ```bash
-docker stop id_contenedor
+docker stop <container_id>
 ```
 Para eliminarlo:
 ```bash
-docker rm id_contenedor
+docker rm <container_id>
 ```
 ---
 
@@ -90,14 +90,16 @@ curl -X POST -F "file=@/Users/diegoarias/Downloads/prueba.jpg" http://127.0.0.1:
 ```
 
 **Response:**
-Imagen Grad-CAM y encabezados HTTP
--  
-```json
-{
-  "prediction": "PNEUMONIA",
-  "confidence": "El modelo está 96.87% seguro de que ES neumonía."
-}
+La respuesta consta de dos partes:
+1. Un archivo de imagen Grad-CAM en formato `.png`, que se guarda como `grad_cam.png`.
+2. Un objeto JSON con la predicción y el nivel de confianza. Para acceder a la predicción se hace de la siguiente manera:
 
+```bash
+docker logs -f <container_id>
+```
+Donde el formato de respuesta es:
+```bash
+Predicción: NORMAL, Confianza: 95.34%
 ```
 
 ---
