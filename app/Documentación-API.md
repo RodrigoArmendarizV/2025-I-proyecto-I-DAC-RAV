@@ -86,7 +86,7 @@ docker rm <container_id>
 
 **Ejemplo:**
 ```bash
-curl -X POST -F "file=@/Users/diegoarias/Downloads/prueba.jpg" http://127.0.0.1:8080/predict --output grad_cam.png
+curl -X POST -F "file=@/radiografia.jpeg" http://127.0.0.1:8080/predict --output grad_cam.png
 ```
 
 **Response:**
