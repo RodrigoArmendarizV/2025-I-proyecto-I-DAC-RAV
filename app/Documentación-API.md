@@ -12,7 +12,6 @@
    - [Detener y Eliminar Contenedores](#detener-y-eliminar-contenedores)
 5. [Endpoints de la API](#endpoints-de-la-api)
    - [POST /clasification_image](#post-clasification_image)
-6. [Manejo de Errores](#manejo-de-errores)
 
 ---
 
@@ -102,7 +101,3 @@ La API maneja errores utilizando códigos de estado HTTP estándar, asegurando u
 - **400 - Solicitud Inválida:** Indica que la solicitud enviada por el cliente contiene errores, como subir una imagen no válida o un formato no soportado.
 - **404 - Recurso No Encontrado:** Señala que el endpoint solicitado no existe o está mal especificado.
 - **500 - Error Interno del Servidor:** Ocurre cuando hay un fallo inesperado durante el procesamiento en el servidor.
-
-## Observaciones
-
-- Los modelos deben estar entrenados y disponibles en el directorio `/app`.
