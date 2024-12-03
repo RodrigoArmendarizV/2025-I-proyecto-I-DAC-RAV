@@ -37,8 +37,8 @@ Es ideal para integrarse en sistemas médicos que requieran un diagnóstico auto
 ### Clonación del Repositorio
 Clona el repositorio del proyecto:
 ```bash
-git clone https://github.com/jrbeduardo/proyecto-malaria.git
-cd proyecto-malaria
+git clone https://github.com/RodrigoArmendarizV/2025-I-proyecto-I-DAC-RAV.git
+cd 2025-I-proyecto-I-DAC-RAV
 ```
 ## Carga del modelo
 
