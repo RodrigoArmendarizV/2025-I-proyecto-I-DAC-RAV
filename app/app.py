@@ -12,6 +12,11 @@ from scipy.ndimage import gaussian_filter
 from io import BytesIO
 import cv2
 import sys
+import logging
+
+# Configurar logging
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
@@ -132,8 +137,7 @@ def predict():
             confidence = (1 - prediction_value) * 100
 
         # Mostrar diagnóstico en la terminal
-        print(f"Predicción: {predicted_class}, Confianza: {confidence:.2f}%", file=sys.stdout)
-        sys.stdout.flush()
+        logger.info(f"Predicción: {predicted_class}, Confianza: {confidence:.2f}%")
 
         # Generar Grad-CAM
         grad_cam_image = generate_grad_cam_bounding_boxes(processed_image, predictions)
@@ -155,3 +159,4 @@ def predict():
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=8080)
+    
