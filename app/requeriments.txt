@@ -1,3 +1,7 @@
-tensorflow==2.18.0
-matplotlib==3.8.4
-Flask
+flask== 3.0.3
+matplotlib== 3.8.4
+tensorflow== 2.18.0
+PIL== 10.3.0
+numpy== 1.26.4
+scipy== 1.13.0
+cv2== 4.10.0
