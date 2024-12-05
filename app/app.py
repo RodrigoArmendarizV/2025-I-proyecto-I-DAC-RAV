@@ -11,12 +11,6 @@ import os
 from scipy.ndimage import gaussian_filter
 from io import BytesIO
 import cv2
-import sys
-import logging
-
-# Configurar logging
-logging.basicConfig(stream=sys.stdout, level=logging.INFO)
-logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
 
@@ -112,10 +106,9 @@ def index():
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    """Procesa una solicitud de predicción."""
     if "file" not in request.files:
         return jsonify({"error": "No se subió ningún archivo"}), 400
-
+    
     file = request.files["file"]
     if file.filename == "":
         return jsonify({"error": "Nombre de archivo vacío"}), 400
@@ -127,35 +120,31 @@ def predict():
 
         # Realizar predicción
         predictions = model.predict(processed_image)
-        prediction_value = predictions[0][0]
+        prediction_value = predictions[0][0]  # Obtener el valor de la predicción
 
+        # Determinar la clase y calcular confianza
         if prediction_value >= 0.5:
             predicted_class = "PNEUMONIA"
             confidence = prediction_value * 100
+            confidence_message = f"El modelo está {confidence:.2f}% seguro de que ES neumonía."
         else:
             predicted_class = "NORMAL"
             confidence = (1 - prediction_value) * 100
+            confidence_message = f"El modelo está {confidence:.2f}% seguro de que NO ES neumonía."
 
-        # Mostrar diagnóstico en la terminal
-        logger.info(f"Predicción: {predicted_class}, Confianza: {confidence:.2f}%")
-
-        # Generar Grad-CAM
+        # Generar el Grad-CAM con bounding boxes
         grad_cam_image = generate_grad_cam_bounding_boxes(processed_image, predictions)
 
-        # Guardar imagen temporalmente
-        image_path = "/tmp/grad_cam.png"
-        with open(image_path, "wb") as f:
-            f.write(grad_cam_image.read())
+        # Crear la respuesta con Grad-CAM
+        response = send_file(grad_cam_image, mimetype='image/png', as_attachment=False, download_name='grad_cam.png')
 
-        # Respuesta JSON con diagnóstico y enlace a la imagen
-        return jsonify({
-            "prediction": predicted_class,
-            "confidence": f"{confidence:.2f}%",
-            "image_path": image_path
-        })
+        # Agregar encabezados para predicción y confianza
+        response.headers['X-Prediction'] = predicted_class
+        response.headers['X-Confidence'] = confidence_message
+        return response
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=8080)
+    app.run(debug=True, port=8080)
