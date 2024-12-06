@@ -50,7 +50,7 @@ El modelo necesario para ejecutar la API es bastante pesado y no está incluido 
  
 [Descargar modelo cnn_neumonia.keras](https://drive.google.com/file/d/1lIucaM2YqiQma1Z3UGR28jJuoSuR9XmT/view?usp=sharing)
 
-Guarda el archivo en la ubicación `/app/cnn_neumonía.keras` independientemente del método que se decida usar.
+Guarda el archivo en la ubicación `/app/cnn_neumonía.keras`.
 
 ---
  
