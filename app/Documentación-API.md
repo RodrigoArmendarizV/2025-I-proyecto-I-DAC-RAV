@@ -23,7 +23,7 @@ Esta API permite analizar radiografías de tórax para detectar neumonía utiliz
 Es ideal para integrarse en sistemas médicos que requieran un diagnóstico automatizado complementario.
 
 ### Fecha de Actualización
-Última actualización: 02-12-2024
+Última actualización: 05-12-2024
 
 ---
 
