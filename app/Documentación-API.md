@@ -13,10 +13,6 @@
    - [Detener y Eliminar Contenedores](#detener-y-eliminar-contenedores)
 5. [Endpoints de la API](#endpoints-de-la-api)
    - [POST /predict](#post-predict)
-6. [App alternativa](#app-alternativa)
-   - [Características](#características)
-   - [Requisitos del sistema](#requisitos-del-sistema)
-   - [Uso de la aplicación](#uso-de-la-aplicación)
 8. [Manejo de errores](#manejo-de-errores)
 
 ---
