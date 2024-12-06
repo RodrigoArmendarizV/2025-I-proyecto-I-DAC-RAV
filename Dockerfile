@@ -1,20 +1,17 @@
-# Usar imagen base
+# Usa una imagen base de Python
 FROM python:3.12-slim
 
 # Configuración del directorio de trabajo
 WORKDIR /app
 
-# Copiar el código al contenedor
+# Copia la carpeta app completa al contenedor
 COPY app /app
 
-# Instalar dependencias del sistema
-RUN apt-get update && apt-get install -y \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Instalar dependencias de Python
+# Instala las dependencias desde requirements.txt
 RUN pip install --no-cache-dir -r /app/requirements.txt
 
+# Expone el puerto en el que se ejecutará la aplicación
+EXPOSE 8080
+
 # Comando para iniciar la aplicación
-CMD ["python", "/app/app.py"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
