@@ -67,7 +67,7 @@ La aplicación recibirá una imagen y al darle clic al botón `Analizar`, regres
 ---
 
 ## Manejo de Errores
-La API maneja errores utilizando códigos de estado HTTP estándar, asegurando una comunicación clara con el cliente:
+La app maneja errores utilizando códigos de estado HTTP estándar, asegurando una comunicación clara con el cliente:
 - **400 - Solicitud Inválida:** Indica que la solicitud enviada por el cliente contiene errores, como subir una imagen no válida o un formato no soportado.
 - **404 - Recurso No Encontrado:** Señala que el endpoint solicitado no existe o está mal especificado.
 - **500 - Error Interno del Servidor:** Ocurre cuando hay un fallo inesperado durante el procesamiento en el servidor.
