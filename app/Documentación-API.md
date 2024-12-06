@@ -54,7 +54,7 @@ El modelo necesario para ejecutar la API es bastante pesado y no está incluido 
  
 [Descargar modelo cnn_neumonia.keras](https://drive.google.com/file/d/1lIucaM2YqiQma1Z3UGR28jJuoSuR9XmT/view?usp=sharing)
 
-Guarda el archivo en la ubicación `/app/cnn_neumonía.keras` si usas Docker.
+Guarda el archivo en la ubicación `/app/cnn_neumonía.keras` independientemente del método que se decida usar.
 
 ---
  
@@ -143,7 +143,9 @@ git clone https://github.com/RodrigoArmendarizV/2025-I-proyecto-I-DAC-RAV.git
 cd 2025-I-proyecto-I-DAC-RAV
 ```
 
-Asegúrate de que `index.html` se encuentre en una carpeta llamada `templates`, junto con el archivo `app web.py`. Posteriormente se debe correr el programa que se encuentra en la carpeta `app web` y finalmente, en tu buscador de confianza, ingresa el siguiente link `http://127.0.0.1:8080`.
+Asegúrate de que `index.html` se encuentre en una carpeta llamada `templates`, junto con el archivo `app web.py`.
+
+Posteriormente se debe correr el programa que se encuentra en la carpeta `app web` y finalmente, en tu buscador de confianza, ingresa el siguiente link `http://127.0.0.1:8080`.
 
 La aplicación recibirá una imagen y al darle clic al botón `Analizar`, regresará la imagen junto con su predicción.
 
