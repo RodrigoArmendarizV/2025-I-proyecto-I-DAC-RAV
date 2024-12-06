@@ -6,6 +6,9 @@
    - [Uso de la aplicación](#uso-de-la-aplicación)
 2. [Manejo de errores](#manejo-de-errores)
 
+### Fecha de Actualización
+Última actualización: 05-12-2024
+
 ## App web
 
 Esta es una aplicación web desarrollada con Flask que utiliza el mismo modelo para detectar neumonía a partir de imágenes médicas. La aplicación permite cargar imágenes, analizar su contenido y visualizar áreas relevantes mediante *Grad-CAM*.
